@@ -15,84 +15,44 @@ class Encryption {
                 passkey = argument;
                 System.out.println("RESULT");
             } else if (command.equals("ENCRYPT")) {
-                if (passkey.isEmpty()) {
-                    System.out.println("ERROR Password not set");
-                } else {
-                    // Use methods from Encryption.java
-                    String text = Encryption.LowerToUpper(argument);
-                    String key = Encryption.LowerToUpper(passkey);
-                    String generatedKey = Encryption.generateKey(text, key);
-                    System.out.println("RESULT " + Encryption.cipherText(text, generatedKey));
-                }
+                if (passkey.isEmpty()) System.out.println("ERROR Password not set");
+                else System.out.println("RESULT " + cipherText(argument, generateKey(argument, passkey)));
             } else if (command.equals("DECRYPT")) {
-                if (passkey.isEmpty()) {
-                    System.out.println("ERROR Password not set");
-                } else {
-                    // Use methods from Encryption.java
-                    String text = Encryption.LowerToUpper(argument);
-                    String key = Encryption.LowerToUpper(passkey);
-                    String generatedKey = Encryption.generateKey(text, key);
-                    System.out.println("RESULT " + Encryption.originalText(argument, generatedKey));
-                }
+                if (passkey.isEmpty()) System.out.println("ERROR Password not set");
+                else System.out.println("RESULT " + originalText(argument, generateKey(argument, passkey)));
             } else if (command.equals("QUIT")) {
                 break;
             }
         }
     }
     
-    public static String generateKey(String str, String key) {
+    private static String generateKey(String str, String key) {
         int x = str.length();
-
+        StringBuilder keyBuilder = new StringBuilder(key);
         for (int i = 0; ; i++) {
-            if (x == i)
-                i = 0;
-            if (key.length() == str.length())
-                break;
-            key += (key.charAt(i));
+            if (keyBuilder.length() == x) break;
+            keyBuilder.append(key.charAt(i % key.length()));
         }
-        return key;
+        return keyBuilder.toString();
     }
-
-    // This function returns the encrypted text generated with the help of the key
-    public static String cipherText(String str, String key) {
-        String cipher_text = "";
-
+    
+    private static String cipherText(String str, String key) {
+        StringBuilder cipher_text = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
-            // converting in range 0-25
-            int x = (str.charAt(i) + key.charAt(i)) % 26;
-
-            // convert into alphabets(ASCII)
+            int x = (str.charAt(i) + key.charAt(i) - 2 * 'A') % 26;
             x += 'A';
-
-            cipher_text += (char) (x);
+            cipher_text.append((char) x);
         }
-        return cipher_text;
+        return cipher_text.toString();
     }
-
-    // This function decrypts the encrypted text and returns the original text
-    public static String originalText(String cipher_text, String key) {
-        String orig_text = "";
-
-        for (int i = 0; i < cipher_text.length() && i < key.length(); i++) {
-            // converting in range 0-25
+    
+    private static String originalText(String cipher_text, String key) {
+        StringBuilder orig_text = new StringBuilder();
+        for (int i = 0; i < cipher_text.length(); i++) {
             int x = (cipher_text.charAt(i) - key.charAt(i) + 26) % 26;
-
-            // convert into alphabets(ASCII)
             x += 'A';
-            orig_text += (char) (x);
+            orig_text.append((char) x);
         }
-        return orig_text;
-    }
-
-    // This function will convert the lowercase character to Upper case
-    public static String LowerToUpper(String s) {
-        StringBuffer str = new StringBuffer(s);
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isLowerCase(s.charAt(i))) {
-                str.setCharAt(i, Character.toUpperCase(s.charAt(i)));
-            }
-        }
-        s = str.toString();
-        return s;
+        return orig_text.toString();
     }
 }
