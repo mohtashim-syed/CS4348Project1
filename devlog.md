@@ -38,11 +38,14 @@ Committed the latest updates to both Encryption.java and Driver.java, making sur
 ## 03-24-2025 11:49
 Ran a final round of tests on the project to check for any remaining issues. The functionality was solid, so I decided to make some final adjustments to the Logger.java file and uploaded it to GitHub to ensure everything was up to date.
 
-## 03-24 21:54
+## 03-24-2025 21:54
 Created a comprehensive README.md file to help users understand how to run the project and what each file does. This will be useful for anyone who wants to use the project in the future.
 
-## 03-24 22:20
+## 03-24-2025 22:20
 Uploaded the completed devlog to GitHub for reference.
+
+## 03-24-2025 22:32
+Updated devlog with notes on GitHub and committed to Git.
 
 ## Notes
 This was my first project using Git, so I wasn’t entirely sure how to properly push and pull updates related to the project. I initially tried working on it using GitHub, but now I understand Git and how to use it effectively for future projects.
