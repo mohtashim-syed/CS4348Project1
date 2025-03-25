@@ -53,17 +53,23 @@ quit -> Exit the program.
 ```
 Enter command (password, encrypt, decrypt, history, quit):
 password
+Use history (y/n)?
+n
 Enter passkey:
 HELLO
 
 Enter command:
 encrypt
+Use history (y/n)?
+n
 Enter string to encrypt:
 WORLD
 RESULT ZPSME
 
 Enter command:
 decrypt
+Use history (y/n)?
+n
 Enter string to decrypt:
 ZPSME
 RESULT WORLD
