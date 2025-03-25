@@ -1,4 +1,4 @@
-#Dev Log
+# Dev Log
 ## 03-10-2025 19:00
 Kicked off the project by reviewing the full set of requirements and diving into research on the Vigenère cipher. I spent some time exploring resources like GeeksForGeeks and watched a couple of YouTube tutorials to get a deeper understanding of how the cipher works and how it can be implemented effectively in Java.
 
@@ -43,3 +43,6 @@ Created a comprehensive README.md file to help users understand how to run the p
 
 ## 03-24 22:20
 Uploaded the completed devlog to GitHub for reference.
+
+## Notes
+This was my first project using Git, so I wasn’t entirely sure how to properly push and pull updates related to the project. I initially tried working on it using GitHub, but now I understand Git and how to use it effectively for future projects.
